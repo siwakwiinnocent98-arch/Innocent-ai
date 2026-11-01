@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INNOCENT AI</title>
+<style>
+body {
+  background: #101827;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+  padding: 30px 15px;
+}
+h1 { color: #48a9ff; }
+.box {
+  max-width: 500px;
+  margin: 30px auto;
+  background: #1d293b;
+  padding: 20px;
+  border-radius: 15px;
+}
+input {
+  width: 90%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+}
+button {
+  padding: 13px 25px;
+  margin: 12px;
+  background: #1685ed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+#answer { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+
+<h1>INNOCENT AI</h1>
+<p>Your intelligent AI assistant</p>
+
+<div class="box">
+  <h2>Ask me anything</h2>
+  <input id="question" placeholder="Type your question...">
+  <br>
+  <button onclick="askAI()">Send</button>
+  <p id="answer">Welcome to INNOCENT AI!</p>
+</div>
+
+<script>
+function askAI() {
+  const question =
+    document.getElementById("question").value;
+
+  if (!question.trim()) {
+    alert("Please type a question.");
+    return;
+  }
+
+  document.getElementById("answer").textContent =
+    "Your question: " + question +
+    "\n\nAI connection will be added next.";
+}
+</script>
+
+</body>
+  </html>
+  
