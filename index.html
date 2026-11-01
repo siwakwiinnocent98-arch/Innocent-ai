@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>INNOCENT AI — Your intelligent assistant</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div id="authScreen" class="auth-wrap">
+    <div class="auth-card">
+      <div class="brand-mark">IA</div>
+      <h1>INNOCENT <span>AI</span></h1>
+      <p class="muted">Your intelligent assistant for learning, creating and exploring.</p>
+      <div class="tabs">
+        <button id="loginTab" class="tab active">Sign in</button>
+        <button id="signupTab" class="tab">Create account</button>
+      </div>
+      <form id="authForm">
+        <label id="nameLabel" class="hidden">Full name
+          <input id="nameInput" autocomplete="name" placeholder="Your name">
+        </label>
+        <label>Email
+          <input id="emailInput" type="email" required autocomplete="email" placeholder="you@example.com">
+        </label>
+        <label>Password
+          <input id="passwordInput" type="password" required minlength="6" autocomplete="current-password" placeholder="At least 6 characters">
+        </label>
+        <button class="primary full" type="submit" id="authSubmit">Sign in</button>
+      </form>
+      <p id="authMessage" class="notice" aria-live="polite"></p>
+      <p class="tiny">By using this service, you agree to use AI responsibly. Do not share passwords or sensitive personal information in chats.</p>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="side-brand"><div class="brand-mark small">IA</div><strong>INNOCENT <span>AI</span></strong></div>
+      <button id="newChatBtn" class="new-chat">＋ New chat</button>
+      <div class="side-label">YOUR SPACE</div>
+      <div id="historyList" class="history-list"><p class="tiny">Your saved chats will appear here.</p></div>
+      <div class="side-bottom">
+        <div id="userEmail" class="tiny"></div>
+        <button id="clearHistoryBtn" class="text-button">Clear chat history</button>
+        <button id="logoutBtn" class="text-button">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-button" aria-label="Open menu">☰</button>
+        <div><strong>INNOCENT AI</strong><span class="online-dot"></span></div>
+        <span class="model-label">AI ASSISTANT</span>
+      </header>
+      <section id="welcome" class="welcome">
+        <div class="hero-orb">✦</div>
+        <p class="eyebrow">WELCOME TO YOUR AI WORKSPACE</p>
+        <h2>What can I help you <span>discover?</span></h2>
+        <p class="muted">Ask questions, learn a topic, write something, build code or explore an idea.</p>
+        <div class="suggestions">
+          <button class="suggestion" data-prompt="Explain photosynthesis in simple steps."><b>▧ Learn something</b><small>Explain a school topic clearly</small></button>
+          <button class="suggestion" data-prompt="Help me plan and build a simple website."><b>⌘ Build with code</b><small>Plan, write and debug code</small></button>
+          <button class="suggestion" data-prompt="Help me write a professional introduction."><b>✎ Write something</b><small>Draft, improve and brainstorm</small></button>
+          <button class="suggestion" data-prompt="Give me a research plan about renewable energy."><b>⌕ Research an idea</b><small>Explore a topic and its questions</small></button>
+        </div>
+      </section>
+      <section id="chat" class="chat hidden" aria-live="polite"></section>
+      <div class="composer-wrap">
+        <form id="chatForm" class="composer">
+          <textarea id="promptInput" rows="1" placeholder="Message INNOCENT AI..." aria-label="Your message"></textarea>
+          <button id="sendBtn" class="send-button" type="submit" aria-label="Send message">↑</button>
+        </form>
+        <p class="disclaimer">INNOCENT AI can make mistakes. Check important information with reliable sources.</p>
+      </div>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
